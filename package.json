@@ -1,0 +1,37 @@
+{
+  "name": "tiny-notes",
+  "version": "1.0.0",
+  "private": true,
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3711",
+    "build": "next build --webpack",
+    "start": "next start --hostname 127.0.0.1 --port 3711",
+    "db:migrate": "node --env-file-if-exists=.env.local --import tsx scripts/migrate.ts",
+    "test": "node --import tsx tests/services.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "pnpm typecheck && pnpm test",
+    "test:browser": "node tests/browser.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.3",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "drizzle-orm": "0.45.2",
+    "better-sqlite3": "13.0.3",
+    "stripe": "20.4.1"
+  },
+  "devDependencies": {
+    "tsx": "4.23.13",
+    "typescript": "5.9.3",
+    "@types/node": "24.13.4",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/better-sqlite3": "7.6.13",
+    "@playwright/test": "1.63.0"
+  },
+  "type": "module"
+}
